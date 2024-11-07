@@ -211,7 +211,7 @@ async function performSteamUpdateChecks() {
 
     if (serversToRestart.length > 0) {
       let updatingServers = serversToRestart.join(', ');
-      await sendDiscordWebhook(`Steam update detected. Restarting servers: ${updatingServers}.`);
+      await sendDiscordWebhook(`CS2 Update Detected. Server has been restarted!`);
 
       for (const serverUuid of serversToRestart) {
         await restartServer(serverUuid);
@@ -220,7 +220,7 @@ async function performSteamUpdateChecks() {
 
       console.log(`All servers have been restarted for the update. Servers restarted: ${updatingServers}.`);
     } else {
-      await sendDiscordWebhook(`Steam update detected. No servers currently running to restart.`);
+      await sendDiscordWebhook(`CS2 Update Detected. No servers currently running to restart.`);
       console.log(`Steam update detected, but no servers are currently running to restart.`);
     }
   } else {
