@@ -201,7 +201,7 @@ async function performSteamUpdateChecks() {
         }
 
         if (isServerRunning) {
-          await sendServerCommand(serverUuid, "say CS2 HAS JUST UPDATED, PLEASE REJOIN THE SERVER!");
+          await sendServerCommand(serverUuid, "say [Staff-Tools] ⚠️ CS2 Update Észlelve ⚠️ 🔄 Szerver újraindítása: 🧟 Imperium Zombie ~ Escape ☣️");
           serversToRestart.push(serverUuid);
         }
       } catch (error) {
@@ -211,7 +211,7 @@ async function performSteamUpdateChecks() {
 
     if (serversToRestart.length > 0) {
       let updatingServers = serversToRestart.join(', ');
-      await sendDiscordWebhook(`CS2 Update Detected. Server has been restarted!`);
+      await sendDiscordWebhook(`⚠️ CS2 Update Észlelve ⚠️\n🔄 Szerver újraindítása: 🧟 Imperium Zombie ~ Escape ☣️`);
 
       for (const serverUuid of serversToRestart) {
         await restartServer(serverUuid);
@@ -220,7 +220,7 @@ async function performSteamUpdateChecks() {
 
       console.log(`All servers have been restarted for the update. Servers restarted: ${updatingServers}.`);
     } else {
-      await sendDiscordWebhook(`CS2 Update Detected. No servers currently running to restart.`);
+      await sendDiscordWebhook(`⚠️ CS2 Update Észlelve ⚠️\n❗Jelenleg nem fut frissítendő szerver`);
       console.log(`Steam update detected, but no servers are currently running to restart.`);
     }
   } else {
